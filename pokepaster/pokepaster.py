@@ -2,11 +2,15 @@ import urllib.request
 from bs4 import BeautifulSoup as bs
 import re
 import os
-
+import tkinter as tk
+from tkinter import filedialog
 
 # input stuff
 form = input('Enter format/tier: ')
-openfile = input('Enter directory + file name with extension: ') 
+
+root = tk.Tk()
+root.withdraw()
+openfile = filedialog.askopenfilename()
 readfile = open(openfile, encoding="utf8")
 urllist = list()
 
@@ -15,7 +19,7 @@ for line in readfile:
     for link in urls:
         urllist.append(link)
 
-print(str(len(urllist)) + ' URLs found.')
+print(str(len(urllist)) + ' URLs found. Parsing...')
 
 writename = os.getcwd() + "\\importables\\import" + "_" + form + "_" + ".txt"
 os.makedirs(os.path.dirname(writename),exist_ok=True)
@@ -73,5 +77,6 @@ with open(writename, 'w',encoding='utf-8') as writefile:
 
         # write to file
         for lines in splittext:
-            print(lines)
             writefile.write(lines + '\n')
+
+print('Pastes created successfully. Check importables folder.')

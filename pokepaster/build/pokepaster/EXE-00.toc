@@ -35,6 +35,9 @@
   ('pyiboot01_bootstrap',
    'c:\\panda3d-1.10.11-x64\\python\\lib\\site-packages\\PyInstaller\\loader\\pyiboot01_bootstrap.py',
    'PYSOURCE'),
+  ('pyi_rth__tkinter',
+   'c:\\panda3d-1.10.11-x64\\python\\lib\\site-packages\\PyInstaller\\hooks\\rthooks\\pyi_rth__tkinter.py',
+   'PYSOURCE'),
   ('pyi_rth_subprocess',
    'c:\\panda3d-1.10.11-x64\\python\\lib\\site-packages\\PyInstaller\\hooks\\rthooks\\pyi_rth_subprocess.py',
    'PYSOURCE'),
@@ -50,7 +53,7 @@
  [],
  False,
  False,
- 1666407960,
+ 1666408567,
  [('run.exe',
    'c:\\panda3d-1.10.11-x64\\python\\lib\\site-packages\\PyInstaller\\bootloader\\Windows-64bit\\run.exe',
    'EXECUTABLE')])
