@@ -53,7 +53,7 @@
  [],
  False,
  False,
- 1666408567,
+ 1666410303,
  [('run.exe',
    'c:\\panda3d-1.10.11-x64\\python\\lib\\site-packages\\PyInstaller\\bootloader\\Windows-64bit\\run.exe',
    'EXECUTABLE')])

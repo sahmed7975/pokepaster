@@ -6,10 +6,13 @@ import tkinter as tk
 from tkinter import filedialog
 
 # input stuff
-form = input('Enter format/tier: ')
 
 root = tk.Tk()
 root.withdraw()
+
+form = tk.simpledialog.askstring('Showdown Format','Enter the tier/format' + 50 * ' ')
+
+print('Select file to open...')
 openfile = filedialog.askopenfilename()
 readfile = open(openfile, encoding="utf8")
 urllist = list()
@@ -21,7 +24,7 @@ for line in readfile:
 
 print(str(len(urllist)) + ' URLs found. Parsing...')
 
-writename = os.getcwd() + "\\importables\\import" + "_" + form + "_" + ".txt"
+writename = os.getcwd() + "\\importables\\" + form + "\\import_" + str(len(urllist)) + "_" + form + ".txt"
 os.makedirs(os.path.dirname(writename),exist_ok=True)
 with open(writename, 'w',encoding='utf-8') as writefile:
 
@@ -78,5 +81,10 @@ with open(writename, 'w',encoding='utf-8') as writefile:
         # write to file
         for lines in splittext:
             writefile.write(lines + '\n')
+        print('Team ' + str(filecount) + ' written.')
 
-print('Pastes created successfully. Check importables folder.')
+root = tk.Tk()
+root.title("Finished")
+l = tk.Label(root,text = 'Pastes created successfully. Check importables folder.')
+l.pack()
+tk.mainloop()
