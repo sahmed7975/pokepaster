@@ -1,18 +1,29 @@
 import urllib.request
 from bs4 import BeautifulSoup as bs
-import random
+import re
+import os
 
 
-# input line-separated list of pokepast.es URLs
+# input stuff
 form = input('Enter format/tier: ')
-filename = input('Enter filename with extension: ') 
-readfile = open(filename)
+openfile = input('Enter directory + file name with extension: ') 
+readfile = open(openfile, encoding="utf8")
+urllist = list()
 
-with open("import" + "_" + form + "_" + filename + ".txt", "w", encoding='utf-8') as writefile:
+for line in readfile:
+    urls = re.findall('https:\/\/pokepast\.es\/[a-z0-9]{16}',line)
+    for link in urls:
+        urllist.append(link)
+
+print(str(len(urllist)) + ' URLs found.')
+
+writename = os.getcwd() + "\\importables\\import" + "_" + form + "_" + ".txt"
+os.makedirs(os.path.dirname(writename),exist_ok=True)
+with open(writename, 'w',encoding='utf-8') as writefile:
 
     # each URL
     filecount = 0
-    for line in readfile: 
+    for line in urllist: 
         filecount = filecount + 1
 
         # remove html
